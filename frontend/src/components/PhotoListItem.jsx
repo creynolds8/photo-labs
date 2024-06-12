@@ -2,13 +2,13 @@ import React from "react";
 
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = (props) => {
+const PhotoListItem = ({ photo }) => {
   /* Insert React */
   return <div>
-    <img src={`${props.imageSource}`} alt="" />
-    <img src={`${props.profile}`} alt="" />
-    <p>{props.username}</p>
-    <p>{props.location.city}, {props.location.country}</p>
+    <img src={`${photo.imageSource}`} alt="" />
+    <img src={`${photo.profile}`} alt="" />
+    <p>{photo.username}</p>
+    <p>{photo.location.city}, {photo.location.country}</p>
   </div>
 };
 
