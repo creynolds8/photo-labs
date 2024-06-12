@@ -20,7 +20,7 @@ while (photoObjs.length < 3) {
   photoObjs.push(sampleDataForPhotoListItem)
 }
 
-const photos = photoObjs.map(photo => <PhotoListItem key={photo.id} photo={photo}/>)
+const photos = photoObjs.map((photo, index) => <PhotoListItem key={index} photo={photo}/>)
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
