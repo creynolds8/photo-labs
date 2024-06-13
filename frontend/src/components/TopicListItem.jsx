@@ -10,8 +10,10 @@ const sampleDataForTopicListItem = {
 
 const TopicListItem = () => {
   return (
-    <div className="topic-list__item">
-      {/* Insert React */}
+    <div className="topis-list__span">
+      <div className="topic-list__item">
+        {sampleDataForTopicListItem.label}
+      </div>
     </div>
   );
 };
