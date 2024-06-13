@@ -3,14 +3,14 @@ import React from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 
-// import PhotoListItem from './components/PhotoListItem';
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   return (
     <div className="photo-list">
-      {/* { Array.from(Array(3)).map((_, index) => <PhotoListItem key={index}/>) } */}
-      <HomeRoute />
+      <HomeRoute topics={topics} photos={photos}/>
     </div>
   );
 };
