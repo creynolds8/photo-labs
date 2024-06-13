@@ -8,7 +8,7 @@ function PhotoFavButton() {
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
-        <div onClick={() => setSelect(true)}>
+        <div onClick={() => setSelect(prev => !prev)}>
           <FavIcon selected={select}/>
         </div>
       </div>
