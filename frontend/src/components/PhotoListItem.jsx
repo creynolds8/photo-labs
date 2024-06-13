@@ -4,8 +4,6 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ photo }) => {
-  console.log(photo);
-  /* Insert React */
   return (
     <div className="photo-list__item">
       <PhotoFavButton />
