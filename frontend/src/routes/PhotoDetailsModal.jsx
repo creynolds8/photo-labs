@@ -12,7 +12,7 @@ const PhotoDetailsModal = ({
   dispatch,
   handleImageClick,
 }) => {
-  const similarPhotosArray = Object.values(photo.similar_photos);
+const similarPhotosArray = Object.values(photo.similar_photos);
 
   return (
     <div className="photo-details-modal">
@@ -24,7 +24,10 @@ const PhotoDetailsModal = ({
       </button>
 
       <div className="photo-details-modal__images">
-        <PhotoFavButton />
+        <PhotoFavButton
+        isFavPhoto={state.favPhotos.includes(photo.id)}
+        handleClick={() => dispatch({payload: photo.id, type: "toggle-fav"})}
+        />
         <img className="photo-details-modal__image" src={photo.urls.full} />
         <div className="photo-details-modal__header">
           <div className="photo-details-modal__photographer-details">
