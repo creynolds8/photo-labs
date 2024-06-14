@@ -3,10 +3,10 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, select, dispatch }) => {
+const PhotoListItem = ({ photo, isFavPhoto, dispatch }) => {
   return (
     <div className="photo-list__item">
-      <PhotoFavButton select={select} handleClick={() => dispatch({payload: photo.id, type: "toggle-fav"})}/>
+      <PhotoFavButton isFavPhoto={isFavPhoto} handleClick={() => dispatch({payload: photo.id, type: "toggle-fav"})}/>
       <img className="photo-list__image" src={`${photo.urls.regular}`} alt="" />
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={`${photo.user.profile}`} alt=""/>

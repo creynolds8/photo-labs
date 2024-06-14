@@ -9,7 +9,7 @@ const PhotoList = ({ photos, state, dispatch }) => {
     return (<PhotoListItem
     key={photo.id}
     photo={photo}
-    select={select}
+    isFavPhoto={select}
     dispatch={dispatch}
     
     />)})
