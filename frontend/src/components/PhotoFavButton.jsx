@@ -1,14 +1,11 @@
-import React, { useCallback, useState } from 'react';
-
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton() {
-  const [ select, setSelect ] = useState(false)
+function PhotoFavButton({select, handleClick}) {
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg">
-        <div onClick={() => setSelect(prev => !prev)}>
+        <div onClick={handleClick}>
           <FavIcon selected={select}/>
         </div>
       </div>
