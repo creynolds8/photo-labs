@@ -12,6 +12,9 @@ const App = () => {
   const handleImageClick = (photo) => {
     setModal({open: true, photo: photo});
   };
+  const handleCloseModal = () => {
+    setModal({open: false, photo: null})
+  }
   return (
     <div className="photo-list">
       <HomeRoute
@@ -19,7 +22,7 @@ const App = () => {
         photos={photos}
         handleImageClick={handleImageClick}
       />
-      {modal.open && <PhotoDetailsModal photo={modal.photo}/>}
+      {modal.open && <PhotoDetailsModal photo={modal.photo} handleCloseModal={handleCloseModal}/>}
     </div>
   );
 };
