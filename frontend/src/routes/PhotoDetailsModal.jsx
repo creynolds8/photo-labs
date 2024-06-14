@@ -11,7 +11,7 @@ const PhotoDetailsModal = ({ photo, handleCloseModal }) => {
   const similarPhotoComponents = similarPhotosArray.map(photo => {
   return <PhotoListItem key={photo.id} photo={photo} />
   })
-console.log(similarPhotoComponents)
+
   return (
     <div className="photo-details-modal">
       <button
