@@ -23,13 +23,13 @@ console.log(similarPhotoComponents)
       <PhotoFavButton />
       <img
         className="photo-details-modal__image"
-        src={`${photo.urls.regular}`}
+        src={photo.urls.regular}
       />
       <div className="photo-details-modal__header">
         <div className="photo-details-modal__photographer-details">
           <img
             className="photo-details-modal__photographer-profile"
-            src={`${photo.user.profile}`}
+            src={photo.user.profile}
           />
           <div className="photo-details-modal__photographer-info">
             {photo.user.name}
