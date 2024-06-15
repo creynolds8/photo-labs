@@ -5,7 +5,7 @@ import photos from "mocks/photos";
 export default function useApplicationData() {
   const reducer = function (state, action) {
     switch (action.type) {
-      case "toggle-fave":
+      case "toggle-fav":
           if (state.favPhotos.includes(action.payload)) {
             return {
               ...state,
@@ -18,7 +18,7 @@ export default function useApplicationData() {
     }
   };
 
-  const [state, updateToFavPhotoIds] = useReducer(reducer, { favPhotos: [] });
+  const [state, dispatch] = useReducer(reducer, { favPhotos: [] });
   const [modal, setModal] = useState({ open: false, photo: null });
   const setPhotoSelected = (clickedPhoto) => {
     const foundPhoto = photos.find((photo) => photo.id === clickedPhoto.id);
@@ -31,7 +31,7 @@ export default function useApplicationData() {
   return {
     state,
     modal,
-    updateToFavPhotoIds,
+    dispatch,
     setPhotoSelected,
     onClosePhotoDetailsModal,
   };
