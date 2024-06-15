@@ -8,7 +8,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} select={props.state.favPhotos.length > 0} />
-      <PhotoList photos={props.photos} state={props.state} dispatch={props.dispatch} handleImageClick={props.handleImageClick}/>
+      <PhotoList photos={props.photos} state={props.state} dispatch={props.dispatch} />
     </div>
   );
 };
