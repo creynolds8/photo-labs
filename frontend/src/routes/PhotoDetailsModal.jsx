@@ -18,7 +18,7 @@ const similarPhotosArray = Object.values(photo.similar_photos);
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={handleCloseModal}
+        onClick={() => dispatch({type: "close-modal"})}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
