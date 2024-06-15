@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from "react";
+import React, { useReducer } from "react";
 
 import photos from "mocks/photos";
 
@@ -13,26 +13,20 @@ export default function useApplicationData() {
             };
           }
           return { ...state, favPhotos: [...state.favPhotos, action.payload] };
+      case 'open-modal':
+        const foundPhoto = photos.find((photo) => photo.id === action.payload.id)
+        return { ...state, modal: { open: true, photo: foundPhoto }}
+      case 'close-modal':
+        return {...state, modal: { open: false, photo: null }}
         default:
           return state;
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, { favPhotos: [] });
-  const [modal, setModal] = useState({ open: false, photo: null });
-  const setPhotoSelected = (clickedPhoto) => {
-    const foundPhoto = photos.find((photo) => photo.id === clickedPhoto.id);
-    setModal({ open: true, photo: foundPhoto });
-  };
-  const onClosePhotoDetailsModal = () => {
-    setModal({ open: false, photo: null });
-  };
+  const [state, dispatch] = useReducer(reducer, { favPhotos: [], modal: { open: false, photo: null } });
 
   return {
     state,
-    modal,
     dispatch,
-    setPhotoSelected,
-    onClosePhotoDetailsModal,
   };
 }
