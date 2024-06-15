@@ -43,6 +43,7 @@ const similarPhotosArray = Object.values(photo.similar_photos);
             </div>
           </div>
         </div>
+        <h3>Similar Photos</h3>
       </div>
       <PhotoList
         photos={similarPhotosArray}
