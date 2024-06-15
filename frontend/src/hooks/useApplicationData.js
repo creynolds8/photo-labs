@@ -6,7 +6,6 @@ export default function useApplicationData() {
   const reducer = function (state, action) {
     switch (action.type) {
       case "toggle-fave":
-        if (action.type === "toggle-fav") {
           if (state.favPhotos.includes(action.payload)) {
             return {
               ...state,
@@ -14,7 +13,6 @@ export default function useApplicationData() {
             };
           }
           return { ...state, favPhotos: [...state.favPhotos, action.payload] };
-        }
         default:
           return state;
     }
