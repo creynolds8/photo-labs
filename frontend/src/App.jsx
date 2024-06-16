@@ -2,9 +2,6 @@ import React, { useState, useReducer } from "react";
 
 import "./App.scss";
 
-import photos from "mocks/photos";
-import topics from "mocks/topics";
-
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
