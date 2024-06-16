@@ -1,7 +1,5 @@
 import React, { useReducer, useEffect } from "react";
 
-import photos from "mocks/photos";
-
 export default function useApplicationData() {
   const reducer = function (state, action) {
     switch (action.type) {
@@ -14,16 +12,29 @@ export default function useApplicationData() {
           }
           return { ...state, favPhotos: [...state.favPhotos, action.payload] };
       case 'open-modal':
-        const foundPhoto = photos.find((photo) => photo.id === action.payload.id)
+        const foundPhoto = state.photoData.find((photo) => photo.id === action.payload.id)
         return { ...state, modal: { open: true, photo: foundPhoto }}
       case 'close-modal':
         return {...state, modal: { open: false, photo: null }}
+      case 'set-photo-data':
+        return {...state, photoData: [...action.payload]}
         default:
           return state;
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, { favPhotos: [], modal: { open: false, photo: null } });
+  useEffect(() => {
+    fetch('/api/photos', {method: 'GET'})
+      .then(res => res.json())
+      .then(data => dispatch({payload: data ,type: 'set-photo-data'}))
+  },[])
+
+  const [state, dispatch] = useReducer(reducer, {
+    favPhotos: [],
+    modal: { open: false, photo: null },
+    photoData: [],
+    topicData: [],
+  });
 
   return {
     state,
