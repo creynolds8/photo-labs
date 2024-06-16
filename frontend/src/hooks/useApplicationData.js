@@ -20,6 +20,11 @@ export default function useApplicationData() {
         return {...state, photoData: [...action.payload]}
       case 'set-topic-data':
         return {...state, topicData: [...action.payload]}
+      case 'get-photos-by-topic':
+        fetch(`/api/topics/photos/${action.payload}`)
+          .then(res => res.json())
+          .then(data => dispatch({payload: data, type: 'set-photo-data'}))
+        return state
         default:
           return state;
     }
