@@ -18,6 +18,8 @@ export default function useApplicationData() {
         return {...state, modal: { open: false, photo: null }}
       case 'set-photo-data':
         return {...state, photoData: [...action.payload]}
+      case 'set-topic-data':
+        return {...state, topicData: [...action.payload]}
         default:
           return state;
     }
@@ -25,8 +27,11 @@ export default function useApplicationData() {
 
   useEffect(() => {
     fetch('/api/photos', {method: 'GET'})
-      .then(res => res.json())
-      .then(data => dispatch({payload: data ,type: 'set-photo-data'}))
+      .then(resPhotos => resPhotos.json())
+      .then(photos => dispatch({payload: photos, type: 'set-photo-data'}))
+    fetch('/api/topics', {method: 'GET'})
+      .then(resTopics => resTopics.json())
+      .then(topics => dispatch({payload: topics, type: 'set-topic-data'}))
   },[])
 
   const [state, dispatch] = useReducer(reducer, {
