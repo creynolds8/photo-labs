@@ -7,7 +7,7 @@ import PhotoList from 'components/PhotoList';
 const HomeRoute = ({ state, dispatch }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={state.topicData} select={state.favPhotos.length > 0} />
+      <TopNavigation topics={state.topicData} select={state.favPhotos.length > 0} dispatch={dispatch} />
       <PhotoList photos={state.photoData} state={state} dispatch={dispatch} />
     </div>
   );
