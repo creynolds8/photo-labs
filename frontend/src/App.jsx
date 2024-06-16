@@ -17,8 +17,8 @@ const App = () => {
       <HomeRoute
         state={state}
         dispatch={dispatch}
-        topics={topics}
-        photos={photos}
+        topics={state.topicData}
+        photos={state.photoData}
       />
       {state.modal.open && (
         <PhotoDetailsModal
