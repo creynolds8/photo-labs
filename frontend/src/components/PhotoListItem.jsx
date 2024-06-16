@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, isFavPhoto, dispatch, handleImageClick }) => {
+const PhotoListItem = ({ photo, isFavPhoto, dispatch }) => {
   return (
     <div className="photo-list__item">
       <PhotoFavButton isFavPhoto={isFavPhoto} handleClick={() => dispatch({payload: photo.id, type: "toggle-fav"})}/>
