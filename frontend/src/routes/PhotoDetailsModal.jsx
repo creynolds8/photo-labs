@@ -7,10 +7,8 @@ import PhotoList from "components/PhotoList";
 
 const PhotoDetailsModal = ({
   photo,
-  handleCloseModal,
   state,
   dispatch,
-  handleImageClick,
 }) => {
 const similarPhotosArray = Object.values(photo.similar_photos);
 
@@ -50,7 +48,6 @@ const similarPhotosArray = Object.values(photo.similar_photos);
         photos={similarPhotosArray}
         state={state}
         dispatch={dispatch}
-        handleImageClick={handleImageClick}
       />
     </div>
   );
