@@ -25,6 +25,8 @@ export default function useApplicationData() {
           .then(res => res.json())
           .then(data => dispatch({payload: data, type: 'set-photo-data'}))
         return state
+      case 'handle-error':
+        return {...state, error: action.payload}
         default:
           return state;
     }
@@ -32,10 +34,25 @@ export default function useApplicationData() {
 
   useEffect(() => {
     fetch('/api/photos', {method: 'GET'})
-      .then(resPhotos => resPhotos.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`
+            Network response was not ok: ${res.statusText}.
+            Please check your connection and try again.
+            `)
+        } else return res.json();
+      })
       .then(photos => dispatch({payload: photos, type: 'set-photo-data'}))
+      .catch(error => dispatch({payload: error.message, type: 'handle-error'}))
     fetch('/api/topics', {method: 'GET'})
-      .then(resTopics => resTopics.json())
+      .then(res => {
+      if (!res.ok) {
+        throw new Error(`
+          Network response was not ok: ${res.statusText}.
+          Please check your connection and try again.
+          `)
+      } else return res.json();
+    })
       .then(topics => dispatch({payload: topics, type: 'set-topic-data'}))
   },[])
 
@@ -44,6 +61,7 @@ export default function useApplicationData() {
     modal: { open: false, photo: null },
     photoData: [],
     topicData: [],
+    error: null,
   });
 
   return {
