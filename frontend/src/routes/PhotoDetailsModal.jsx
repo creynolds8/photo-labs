@@ -46,6 +46,7 @@ const similarPhotosArray = Object.values(photo.similar_photos);
         <h3>Similar Photos</h3>
       </div>
       <PhotoList
+        key={photo.id}
         photos={similarPhotosArray}
         state={state}
         dispatch={dispatch}
