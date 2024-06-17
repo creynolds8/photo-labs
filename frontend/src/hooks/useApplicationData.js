@@ -22,8 +22,16 @@ export default function useApplicationData() {
         return {...state, topicData: [...action.payload]}
       case 'get-photos-by-topic':
         fetch(`/api/topics/photos/${action.payload}`)
-          .then(res => res.json())
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`
+              Network response was not ok: ${res.statusText}.
+              Please check your connection and try again.
+              `)
+          } else return res.json();
+        })
           .then(data => dispatch({payload: data, type: 'set-photo-data'}))
+          .catch(error => dispatch({payload: error.message, type: 'handle-error'}))
         return state
       case 'handle-error':
         return {...state, error: action.payload}
