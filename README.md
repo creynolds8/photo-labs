@@ -10,7 +10,7 @@ This is the view of the main page, shown with some photos liked and the correspo
 
 !["Main page with Photo List view"](https://github.com/creynolds8/photo-labs/blob/main/docs/Photo-List.png?raw=true)
 
-This is also the main page, however in this photo the photos are being filtered by topic, in this case animal phots.
+This is also the main page, however in this case the photos are being filtered by topic, in this case animal phots.
 
 !["Main page filtered by topic"](https://github.com/creynolds8/photo-labs/blob/main/docs/Photos-by-Topic.png?raw=true)
 
@@ -47,3 +47,12 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+## Extra Features
+
+- Within the modal view, a user can click on any of the similar images that are displayed to open up a modal view for that photo. I implemented this for a better user experience so the user can navigate directly to the larger view of that image rather than having to go back to the main page and look through all images to find the image they are looking for.
+
+- Error Handling:
+  - I chose to implement some cases of error handling in the event of issues with a users network or a server connection error. Since this project is run on two localhost ports these network errors can be simulated by shutting down the backend server and attempting to continue to use the frontend of the application.
+  - The initial loading of topic and photo data is done with a **fetch** call. If the response to either of those calls is a bad response, an error is thrown and caught then dispatch is used to set that error within the global state being managed by the reducer function. If an error occurs, the main components are not rendered and in their place an error message component is displayed as shown in the image above.
+  - When filtering by topic, a **fetch** call is also used so this is handled the same way as an error that occurs during the initial load. I made sure to implement this in the event a user was able to load the main page but then got disconnected before trying to filter by photo topic.
+  - If a user is disconnected and then tries to load a modal view of a photo, the photos would not load because the photo URLs would not be able to fetched from their respective endpoints. This error is handled using the onError attribute within the image tag for the primary image which uses a callback to call the dispatch function and sets the error object in the same way as the above error handling.
