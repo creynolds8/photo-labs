@@ -4,7 +4,7 @@ Welcome to PhotoLabs! A project using primarily **React** to learn how React wor
 
 PhotoLabs was created during the Lighthouse Labs Web Development Immersive program
 
-## Final Product
+## Final Product:
 
 This is the view of the main page, shown with some photos liked and the corresponding notification inside of navigation bar.
 
@@ -28,7 +28,7 @@ In the case of a network or server error, the main components (Navigation Bar an
 ![]()
 
 
-## Setup
+## Setup:
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
 
@@ -47,7 +47,7 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
-## Extra Features
+## Extra Features:
 
 - Within the modal view, a user can click on any of the similar images that are displayed to open up a modal view for that photo. I implemented this for a better user experience so the user can navigate directly to the larger view of that image rather than having to go back to the main page and look through all images to find the image they are looking for.
 
@@ -56,3 +56,9 @@ npm start
   - The initial loading of topic and photo data is done with a **fetch** call. If the response to either of those calls is a bad response, an error is thrown and caught then dispatch is used to set that error within the global state being managed by the reducer function. If an error occurs, the main components are not rendered and in their place an error message component is displayed as shown in the image above.
   - When filtering by topic, a **fetch** call is also used so this is handled the same way as an error that occurs during the initial load. I made sure to implement this in the event a user was able to load the main page but then got disconnected before trying to filter by photo topic.
   - If a user is disconnected and then tries to load a modal view of a photo, the photos would not load because the photo URLs would not be able to fetched from their respective endpoints. This error is handled using the onError attribute within the image tag for the primary image which uses a callback to call the dispatch function and sets the error object in the same way as the above error handling.
+
+## Questions and Concerns
+
+If you have any questions or concerns please feel free contact me through Discord.
+
+Discord Username: ```cameron_reynolds8```
