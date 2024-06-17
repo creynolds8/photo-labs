@@ -1,13 +1,17 @@
-import React from 'react';
+import React from "react";
 
-import '../styles/HomeRoute.scss';
-import TopNavigation from 'components/TopNavigationBar';
-import PhotoList from 'components/PhotoList';
+import "../styles/HomeRoute.scss";
+import TopNavigation from "components/TopNavigationBar";
+import PhotoList from "components/PhotoList";
 
 const HomeRoute = ({ state, dispatch }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={state.topicData} select={state.favPhotos.length > 0} dispatch={dispatch} />
+      <TopNavigation
+        topics={state.topicData}
+        select={state.favPhotos.length > 0}
+        dispatch={dispatch}
+      />
       <PhotoList photos={state.photoData} state={state} dispatch={dispatch} />
     </div>
   );
