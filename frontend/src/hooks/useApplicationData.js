@@ -39,7 +39,17 @@ export default function useApplicationData() {
         return state;
       case "handle-error":
         return { ...state, error: action.payload };
-      default:
+      case "toggle-view-mode":
+        const element = document.getElementById("root");
+        if (state.viewMode === "light") {
+          element.classList.add("dark-mode")
+          return {...state, viewMode: "dark"};
+          }
+        if (state.viewMode === "dark") {
+          element.classList.remove("dark-mode")
+          return {...state, viewMode: "light"};
+          }
+        default:
         return state;
     }
   };
@@ -79,6 +89,7 @@ export default function useApplicationData() {
     photoData: [],
     topicData: [],
     error: null,
+    viewMode: "light",
   });
 
   return {
