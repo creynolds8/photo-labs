@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 export default function useApplicationData() {
   const reducer = function (state, action) {
