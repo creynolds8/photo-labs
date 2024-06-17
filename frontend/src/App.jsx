@@ -4,7 +4,9 @@ import "./App.scss";
 
 import HomeRoute from "routes/HomeRoute";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+
 import useApplicationData from "hooks/useApplicationData";
+
 import ErrorMessage from "components/ErrorMessage";
 
 const App = () => {
