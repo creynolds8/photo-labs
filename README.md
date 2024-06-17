@@ -10,7 +10,7 @@ This is the view of the main page, shown with some photos liked and the correspo
 
 !["Main page with Photo List view"](https://github.com/creynolds8/photo-labs/blob/main/docs/Photo-List.png?raw=true)
 
-This is also the main page, however in this case the photos are being filtered by topic, in this case animal phots.
+This is also the main page, however in this case the photos are being filtered by topic, in this case animal photos.
 
 !["Main page filtered by topic"](https://github.com/creynolds8/photo-labs/blob/main/docs/Photos-by-Topic.png?raw=true)
 
