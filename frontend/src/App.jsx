@@ -8,25 +8,19 @@ import useApplicationData from "hooks/useApplicationData";
 import ErrorMessage from "components/ErrorMessage";
 
 const App = () => {
-  const {
-    state,
-    dispatch,
-  } = useApplicationData();
+  const { state, dispatch } = useApplicationData();
 
   return (
     <div className="photo-list">
-      <HomeRoute
-        state={state}
-        dispatch={dispatch}
-        />
-        {state.modal.open && (
-          <PhotoDetailsModal
+      {state.error && <ErrorMessage error={state.error} />}
+      {!state.error && <HomeRoute state={state} dispatch={dispatch} />}
+      {!state.error && state.modal.open && (
+        <PhotoDetailsModal
           photo={state.modal.photo}
           state={state}
           dispatch={dispatch}
-          />
-          )}
-        {state.error && <ErrorMessage error={state.error} />}
+        />
+      )}
     </div>
   );
 };
