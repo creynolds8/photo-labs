@@ -5,28 +5,36 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoFavButton from "components/PhotoFavButton";
 import PhotoList from "components/PhotoList";
 
-const PhotoDetailsModal = ({
-  photo,
-  state,
-  dispatch,
-}) => {
-const similarPhotosArray = Object.values(photo.similar_photos);
+const PhotoDetailsModal = ({ photo, state, dispatch }) => {
+  const similarPhotosArray = Object.values(photo.similar_photos);
 
   return (
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={() => dispatch({type: "close-modal"})}
+        onClick={() => dispatch({ type: "close-modal" })}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
 
       <div className="photo-details-modal__images">
         <PhotoFavButton
-        isFavPhoto={state.favPhotos.includes(photo.id)}
-        handleClick={() => dispatch({payload: photo.id, type: "toggle-fav"})}
+          isFavPhoto={state.favPhotos.includes(photo.id)}
+          handleClick={() =>
+            dispatch({ payload: photo.id, type: "toggle-fav" })
+          }
         />
-        <img className="photo-details-modal__image" src={photo.urls.full} onError={() => dispatch({payload: "Photo failed to load. Check your network connnection.", type: 'handle-error'})}/>
+        <img
+          className="photo-details-modal__image"
+          src={photo.urls.full}
+          onError={() =>
+            dispatch({
+              payload:
+                "Network response was not ok: Photo failed to load. Check your network connnection.",
+              type: "handle-error",
+            })
+          }
+        />
         <div className="photo-details-modal__header">
           <div className="photo-details-modal__photographer-details">
             <img
