@@ -1,12 +1,14 @@
 import React from "react";
+import sun from "../assets/sunny.png"
+import moon from "../assets/moon.png"
+import "../styles/ToggleViewModeButton.scss"
 
-const ToggleViewModeButton = ({ dispatch }) => {
+const ToggleViewModeButton = ({ viewMode, dispatch }) => {
   return (
-    <div className="view-mode-button">
-      <button onClick={() => dispatch({type: 'toggle--view-mode'})}>
-        click to toggle view mode
+      <button className="view-mode-button" onClick={() => dispatch({type: 'toggle-view-mode'})}>
+        {viewMode === "light" && <img src={`${sun}`} className="toggle-icon" />}
+        {viewMode === "dark" && <img src={`${moon}`} className="toggle-icon" />}
       </button>
-    </div>
   );
 };
 
