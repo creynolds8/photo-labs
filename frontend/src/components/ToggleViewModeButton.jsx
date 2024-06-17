@@ -1,3 +1,5 @@
+import React from "react";
+
 const ToggleViewModeButton = ({ dispatch }) => {
   return (
     <div className="view-mode-button">
