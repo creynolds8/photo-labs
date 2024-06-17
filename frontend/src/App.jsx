@@ -11,17 +11,19 @@ const App = () => {
   const { state, dispatch } = useApplicationData();
 
   return (
-    <div className="photo-list">
+    <>
       {state.error && <ErrorMessage error={state.error} />}
-      {!state.error && <HomeRoute state={state} dispatch={dispatch} />}
-      {!state.error && state.modal.open && (
-        <PhotoDetailsModal
-          photo={state.modal.photo}
-          state={state}
-          dispatch={dispatch}
-        />
-      )}
-    </div>
+      <div className="photo-list">
+        {!state.error && <HomeRoute state={state} dispatch={dispatch} />}
+        {!state.error && state.modal.open && (
+          <PhotoDetailsModal
+            photo={state.modal.photo}
+            state={state}
+            dispatch={dispatch}
+          />
+        )}
+      </div>
+    </>
   );
 };
 
