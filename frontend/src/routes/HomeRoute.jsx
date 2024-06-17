@@ -9,6 +9,7 @@ const HomeRoute = ({ state, dispatch }) => {
   return (
     <div className="home-route">
       <TopNavigation
+        viewMode={state.viewMode}
         topics={state.topicData}
         select={state.favPhotos.length > 0}
         dispatch={dispatch}
