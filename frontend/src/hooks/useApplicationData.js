@@ -12,7 +12,7 @@ export default function useApplicationData() {
         }
         return { ...state, favPhotos: [...state.favPhotos, action.payload] };
       case "open-modal":
-          const foundPhoto = state.photoData.find(
+        const foundPhoto = state.photoData.find(
           (photo) => photo.id === action.payload.id
         );
         return { ...state, modal: { open: true, photo: foundPhoto } };
