@@ -6,13 +6,13 @@ import TopicList from "./TopicList";
 import FavBadge from "./FavBadge";
 import ToggleViewModeButton from "./ToggleViewModeButton";
 
-const TopNavigation = ({ select, topics, dispatch }) => {
+const TopNavigation = ({ viewMode, select, topics, dispatch }) => {
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
       <TopicList topics={topics} dispatch={dispatch} />
       <div className="button">
-        <ToggleViewModeButton dispatch={dispatch} />
+        <ToggleViewModeButton viewMode={viewMode} dispatch={dispatch} />
         <FavBadge isFavPhotoExist={select} />
       </div>
     </div>
