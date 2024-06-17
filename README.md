@@ -47,6 +47,24 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+## Dependencies:
+- ## Frontend:
+  - React
+  - React-dom
+  - React-scripts
+  - Web-vitals
+  - Testing libraries can also be installed for functionality testing
+
+- ## Backend:
+  - Body-parser
+  - Cors
+  - Dotenv
+  - Express
+  - Helmet
+  - Postgres
+  - Socket.io
+  - Websocket
+
 ## Extra Features:
 
 - Within the modal view, a user can click on any of the similar images that are displayed to open up a modal view for that photo. I implemented this for a better user experience so the user can navigate directly to the larger view of that image rather than having to go back to the main page and look through all images to find the image they are looking for.
